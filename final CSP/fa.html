@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpHub - First Aid Learning</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #f5f9ff;
+        }
+
+        header {
+            background: #0066ff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+        }
+
+        header h2 {
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            padding-top: 10px;
+        }
+
+        .dropdown-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .topic-dropdown {
+            width: 90%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* Dynamic output box */
+        #info-box {
+            background: white;
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        #info-box h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        #info-box p {
+            font-size: 15px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        /* Link button */
+        .guide-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: #0066ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+            margin-bottom: 18px;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+        }
+
+        .card img {
+            width: 80px;
+            display: block;
+            margin: auto;
+        }
+
+        .card h4 {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .card p {
+            font-size: 14px;
+            text-align: center;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #0066ff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>HelpHub</h2>
+    <p>Interactive First Aid Learning</p>
+</header>
+
+
+<div class="dropdown-container">
+    <select class="topic-dropdown" onchange="showInfo(this.value)">
+        <option value="">Select a First Aid Topic</option>
+        <option value="choking">Choking Relief (Heimlich)</option>
+        <option value="cough">Cough & Cold Support</option>
+        <option value="stomach">Stomach Ache Response</option>
+        <option value="dizzy">Dizziness</option>
+        <option value="shock">Shock Management</option>
+        <option value="nose">Nosebleed Control</option>
+        <option value="food">Food Poisoning Response</option>
+        <option value="asthma">Asthma Attack First Aid</option>
+        <option value="drowning">Drowning Response</option>
+        <option value="faint">Fainting or Unconsciousness</option>
+        <option value="anemia">Anemia / RBC Deficiency</option>
+    </select>
+</div>
+
+<!-- Dynamic Info Box -->
+<div id="info-box"></div>
+
+<section class="container">
+
+    <h3>Learn First Aid</h3>
+
+    <div class="card">
+        <img src="bleed.jpg">
+        <h4>Bleeding Control</h4>
+        <p>Learn how to stop bleeding using pressure and bandages.</p>
+        <button><a href="bleed.html" style="color:white; text-decoration:none;">Open Guide</a></button>
+    </div>
+
+    <div class="card">
+        <img src="bgburn.jpg">
+        <h4>Burn Treatment</h4>
+        <p>Immediate steps for minor and major burn injuries.</p>
+        <button><a href="burn.html" style="color:white; text-decoration:none;">Open Guide</a></button>
+    </div>
+<div class="card">
+        <img src="cpr.jpg">
+        <h4>CPR</h4>
+        <p>performance of CPR.</p>
+        <button><a href="burn.html" style="color:white; text-decoration:none;">Open Guide</a></button>
+    </div>
+<div class="card">
+        <img src="bgfracture.jpg">
+        <h4>Fracture Treatment</h4>
+        <p>Immediate steps for minor and major fractures.</p>
+        <button><a href="burn.html" style="color:white; text-decoration:none;">Open Guide</a></button>
+    </div>
+
+
+
+
+</section>
+
+<script>
+    function showInfo(topic) {
+        const box = document.getElementById("info-box");
+        if (!topic) { box.style.display = "none"; return; }
+
+        const data = {
+            choking: {
+                title: "Choking Relief (Heimlich)",
+                text: "Choking occurs when an object blocks the airway. Immediate action is needed to restore breathing.",
+                link: "choking.html"
+            },
+            cough: {
+                title: "Cough & Cold Support",
+                text: "Cough and cold symptoms can cause discomfort. Learn quick relief methods and home remedies.",
+                link: "Cough&cold.html"
+            },
+            stomach: {
+                title: "Stomach Ache Response",
+                text: "Stomach pain may be due to indigestion, gas, or infection. Learn safe first aid steps.",
+                link: "stomach ache.html"
+            },
+            dizzy: {
+                title: "Dizziness",
+                text: "Dizziness can happen due to dehydration, low BP, or weakness. Know what to do immediately.",
+                link: "Dizziness.html"
+            },
+            shock: {
+                title: "Shock Management",
+                text: "Shock is a life-threatening condition caused by low blood flow. Learn essential first aid.",
+                link: "shock.html"
+            },
+            nose: {
+                title: "Nosebleed Control",
+                text: "Nosebleeds are common and usually not serious. Learn how to control bleeding quickly.",
+                link: "nosebleed.html"
+            },
+            food: {
+                title: "Food Poisoning Response",
+                text: "Food poisoning causes vomiting, diarrhea, and stomach cramps. Here’s how to help safely.",
+                link: "food poison.html"
+            },
+            asthma: {
+                title: "Asthma Attack First Aid",
+                text: "Asthma attacks restrict airflow. Quick action helps restore normal breathing.",
+                link: "asthma.html"
+            },
+            drowning: {
+                title: "Drowning Response",
+                text: "Drowning requires urgent help to restore breathing. Learn life-saving steps.",
+                link: "drowning.html"
+            },
+            faint: {
+                title: "Fainting or Unconsciousness",
+                text: "Fainting occurs when the brain lacks oxygen. Immediate first aid helps recovery.",
+                link: "fainting.html"
+            },
+            anemia: {
+                title: "Anemia / RBC Deficiency",
+                text: "Anemia causes weakness due to low red blood cells. Learn first aid and diet support.",
+                link: "Anemia.html"
+            }
+        };
+
+        const info = data[topic];
+        box.innerHTML = `
+            <h3>${info.title}</h3>
+            <p>${info.text}</p>
+            <a class="guide-link" href="${info.link}">Open Full Guide</a>
+        `;
+        box.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
